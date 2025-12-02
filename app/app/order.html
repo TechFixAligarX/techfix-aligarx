@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказ</title>
+    <style>
+        body { background: #0d0d0d; color: #eee; padding: 20px; font-family: Arial; }
+        .box { background: #161616; padding: 15px; border-radius: 10px; }
+        .admin { color: #00ff99; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<h2>Информация о заказе</h2>
+
+<div class="box" id="content">Загрузка...</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const id = params.get("id");
+const isAdmin = params.get("admin") === "aligarx";
+
+let data = JSON.parse(localStorage.getItem("order_" + id));
+
+if (!data) {
+    content.innerHTML = "Заказ не найден.";
+} else {
+    content.innerHTML = `
+        <b>Клиент:</b> ${data.client}<br>
+        <b>Телефон:</b> ${data.phone}<br><br>
+
+        <b>Устройство:</b> ${data.device}<br>
+        <b>Проблема:</b> ${data.problem}<br><br>
+
+        <b>Гарантия:</b> ${data.warranty}<br><br>
+
+        ${isAdmin ? `<div class="admin"><b>Цена:</b> ${data.price} сум</div>` : ""}
+    `;
+}
+</script>
+
+</body>
+</html>
