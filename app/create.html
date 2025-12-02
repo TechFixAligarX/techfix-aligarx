@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание заказа</title>
+    <style>
+        body { background: #0d0d0d; color: #eee; padding: 20px; font-family: Arial; }
+        input, textarea {
+            width: 100%; padding: 10px; margin: 8px 0;
+            border-radius: 8px; border: none; background: #222; color: #fff;
+        }
+        button {
+            width: 100%; padding: 12px; background: #0094ff; border: none;
+            color: white; font-size: 18px; border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Создание нового заказа</h2>
+
+<input id="client" placeholder="Имя клиента">
+<input id="phone" placeholder="Телефон">
+<input id="device" placeholder="Устройство">
+<input id="problem" placeholder="Проблема">
+<input id="price" placeholder="Стоимость (только ты видишь)">
+<input id="warranty" placeholder="Гарантия (например: 30 дней)">
+
+<button onclick="createOrder()">Создать</button>
+
+<script>
+function createOrder() {
+    let id = Date.now();
+
+    let data = {
+        id,
+        client: client.value,
+        phone: phone.value,
+        device: device.value,
+        problem: problem.value,
+        price: price.value,
+        warranty: warranty.value
+    };
+
+    localStorage.setItem("order_" + id, JSON.stringify(data));
+
+    window.location.href = "order.html?id=" + id;
+}
+</script>
+
+</body>
+</html>
