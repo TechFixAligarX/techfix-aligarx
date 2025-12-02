@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFix_AligarX • Приложение</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/techfix-aligarx/app/service-worker.js");
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
+            color: #eee;
+            padding: 25px;
+        }
+        h1 {
+            text-align: center;
+            color: #0094ff;
+        }
+        .btn {
+            display: block;
+            background: #0094ff;
+            color: #fff;
+            padding: 15px;
+            margin: 12px 0;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #1ab0ff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>TechFix_AligarX • Service App</h1>
+
+<a class="btn" href="create.html">Создать заказ</a>
+<a class="btn" href="orders.html">Мои заказы</a>
+<a class="btn" href="scan.html">Сканировать QR</a>
+
+</body>
+</html>
